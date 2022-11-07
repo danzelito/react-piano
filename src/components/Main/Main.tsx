@@ -1,4 +1,3 @@
-import React from 'react';
 import {Keyboard} from '../Keyboard/Keyboard';
 import {useAudioContext} from '../AudiocontextProvider/useAudioContext';
 import {NoAudioMessage} from '../NoAudioMessage';
@@ -9,3 +8,4 @@ const Main = () => {
 };
 
 export {Main};
+

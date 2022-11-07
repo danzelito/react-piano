@@ -1,16 +1,18 @@
-import {Key} from '../Key';
-import {notes} from '../../domain/note';
-import styles from './Keyboard.module.css';
+import { Key } from "../Key";
+import { selectKey } from "../../domain/keyboard";
+import { notes } from "../../domain/note";
+import styles from "./Keyboard.module.css";
 
 const Keyboard = () => {
   return (
-    <div>
+    <div className={styles.keyboard}>
       {notes.map((note) => {
-        const {midi, type, index, octave, pitch} = note;
-		  return <Key key={midi} type={type} label={pitch} />;
+        const { midi, type, index, octave} = note;
+        const label = selectKey(octave, index);
+        return <Key key={midi} type={type} label={label} />;
       })}
     </div>
   );
 };
 
-export {Keyboard};
+export { Keyboard };

@@ -1,6 +1,8 @@
-import React from 'react';
-import {NoteType} from '../../domain/note';
-import styles from './Key.module.css';
+import React from "react";
+import clsx from "clsx";
+import { NoteType } from "../../domain/note";
+import styles from "./Key.module.css";
+console.log(styles)
 
 type KeyProps = {
   type: NoteType;
@@ -9,13 +11,13 @@ type KeyProps = {
   children?: React.ReactNode;
 };
 
-const Key: React.FC<KeyProps> = (props) => {
-  const {type, label, ...rest} = props;
+const Key: React.FunctionComponent<KeyProps> = (props) => {
+  const { type, label, ...rest } = props;
   return (
-    <button className={styles[type]} type="button" {...rest}>
+    <button className={clsx(styles.key, styles[type])} type="button" {...rest}>
       {label}
     </button>
   );
 };
 
-export {Key};
+export { Key };
